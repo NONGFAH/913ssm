@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.nongfah.home.dao.FlowMapper">
+    <select id="countUserName" parameterType="xyz.nongfah.home.model.Flow" resultType="Integer">
+        select count(id) from Flow where  userName=#{userName} and date = CURDATE() and name = #{name};
+    </select>
+
+    <insert id="insertFlow" parameterType="xyz.nongfah.home.model.Flow">
+	        insert into Flow
+	        ( userName, name, breakfast, lunch, fruits, dinner, defecation, water, weight, date, tips)
+	        values (#{userName},#{name},#{breakfast},#{lunch},#{fruits},#{dinner},#{defecation},#{water},#{weight},CURDATE(),#{tips})
+	 </insert>
+
+    <update id="updateFlow" parameterType="xyz.nongfah.home.model.Flow">
+		 UPDATE  Flow SET
+            breakfast=#{breakfast}, lunch=#{lunch}, fruits=#{fruits}, dinner=#{dinner},
+            defecation=#{defecation}, water=#{water}, weight=#{weight}, tips=#{tips}
+		where username =(#{userName}) and date = CURDATE()and  name= (#{name})
+	</update>
+
+
+    <select id="nameListYes" parameterType="Map" resultType="Map">
+                SELECT a.* FROM(
+            (select distinct name  from Flow where  username  =#{userName} and date = CURDATE())
+            UNION ALL
+            (select distinct name  from Flow where  username  =#{userName})
+        )a GROUP BY a.name HAVING COUNT(a.name)=2 order by a.name
+    </select>
+    <select id="nameListNo" parameterType="Map" resultType="Map">
+
+        SELECT a.* FROM(
+            (select distinct name  from Flow where  username  =#{userName} and date = CURDATE())
+            UNION ALL
+            (select distinct name  from Flow where  username  =#{userName})
+        )a GROUP BY a.name HAVING COUNT(a.name)=1 order by a.name
+    </select>
+
+    <select id="orderWeightDay" parameterType="Map" resultType="Map">
+        select * from (
+        select todayName , todayWeight - yesterdayWeight data ,(todayWeight - yesterdayWeight)/yesterdayWeight percent
+        from
+        (select name todayName ,weight  todayWeight from  Flow   where date =  CURDATE() and userName = #{userName}) today,
+        (select name yesterdayName,weight yesterdayWeight from  Flow    where date = DATE_SUB( CURDATE(), INTERVAL 1 DAY) and userName = #{userName}) yesterday
+        where todayName = yesterdayName
+        ORDER BY percent ) temp
+        where data &lt; 0
+    </select>
+    <select id="orderWeightWeek" parameterType="Map" resultType="Map">
+        select * from (
+        select todayName , todayWeight - yesterdayWeight data ,(todayWeight - yesterdayWeight)/yesterdayWeight percent
+        from
+        (select name todayName ,weight  todayWeight from  Flow   where date =  CURDATE() and userName = #{userName}) today,
+        (select name yesterdayName,weight yesterdayWeight from  Flow    where date = DATE_SUB( CURDATE(), INTERVAL 7 DAY) and userName = #{userName}) yesterday
+        where todayName = yesterdayName
+        ORDER BY percent ) temp
+        where data &lt; 0
+    </select>
+    <select id="orderWeightMonth" parameterType="Map" resultType="Map">
+        select * from (
+        select todayName , todayWeight - yesterdayWeight data ,(todayWeight - yesterdayWeight)/yesterdayWeight percent
+        from
+        (select name todayName ,weight  todayWeight from  Flow   where date =  CURDATE() and userName = #{userName}) today,
+        (select name yesterdayName,weight yesterdayWeight from  Flow    where date = DATE_SUB( CURDATE(), INTERVAL 30 DAY) and userName = #{userName}) yesterday,
+        (select name countName,count(id) countId from FLOW
+        where  date &gt;= DATE_SUB( CURDATE(), INTERVAL 30 DAY)
+        and date &lt;= CURDATE()
+        and userName = #{userName}
+          group by  name) countData
+        where todayName = yesterdayName and countName = todayName and countId &gt;27
+        ORDER BY percent ) temp
+        where data &lt; 0
+    </select>
+
+    <select id="orderUserName" parameterType="Map" resultType="Map">
+        select *  from Flow where  date = #{date} order by (lostWeight- select lostWeight from flow where  date = date_sub(CURDATE(),interval 1 day)  ;
+    </select>
+
+    <select id="selectLastWeight" resultType="float" parameterType="String">
+        select lostWeight from Flow where  username=#{userName} and date = (select max(date) from Flow where username=#{userName} );
+    </select>
+
+</mapper>

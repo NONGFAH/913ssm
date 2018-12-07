@@ -1,0 +1,146 @@
+$(document).ready(function () {
+    $("#a").click(function () {
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#a").addClass("active");
+    });
+    $("#b").click(function () {
+        $("#a").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#b").addClass("active");
+    });
+    $("#c").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#c").addClass("active");
+    });
+
+    $("#d").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#d").addClass("active");
+    });
+    $("#e").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#e").addClass("active");
+    });
+    $("#f").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#f").addClass("active");
+    });
+    $("#g").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#g").addClass("active");
+    });
+    $("#h").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#h").addClass("active");
+    });
+    $("#i").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").removeClass("active");
+        $("#i").addClass("active");
+    });
+    $("#j").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#k").removeClass("active");
+        $("#j").addClass("active");
+    });
+    $("#k").click(function () {
+        $("#a").removeClass("active");
+        $("#b").removeClass("active");
+        $("#c").removeClass("active");
+        $("#d").removeClass("active");
+        $("#e").removeClass("active");
+        $("#f").removeClass("active");
+        $("#g").removeClass("active");
+        $("#h").removeClass("active");
+        $("#i").removeClass("active");
+        $("#j").removeClass("active");
+        $("#k").addClass("active");
+    });
+});

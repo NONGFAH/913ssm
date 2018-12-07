@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.nongfah.User.dao.UserMapper">
+    <select id="isNameExist" parameterType="String" resultType="Integer">
+        select count(id) from user  where userName=#{userName}
+    </select>
+
+    <select id="unableLogin" parameterType="xyz.nongfah.User.model.User" resultType="Integer">
+        select count(id) from user  where userName = #{userName} and password = #{password}
+    </select>
+
+    <insert id="logon" parameterType="xyz.nongfah.User.model.User" >
+	        insert into USER (userName,password) values (#{userName},#{password});
+    </insert>
+
+    <select id="State" parameterType="String" resultType="Integer">
+        select (State) from user  where  userName = #{userName}
+    </select>
+
+
+    <select id="select" resultType="xyz.nongfah.User.model.User">
+	        select * from   USER
+    </select>
+
+</mapper>
