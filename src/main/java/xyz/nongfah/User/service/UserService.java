@@ -22,8 +22,12 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-
-    @Transactional//注册
+    /**
+     * 注册
+     * @param user 账号+密码
+     * @throws Exception
+     */
+    @Transactional
     public void logon(User user) throws Exception {
         try {
             userMapper.logon(user);
@@ -31,6 +35,7 @@ public class UserService {
             throw new Exception("UserService logon", e);
         }
     }
+
 
     @Transactional
     public boolean isNameExist(String name) {//用户名不存在返回true
@@ -94,3 +99,6 @@ public class UserService {
 
 
 }
+
+
+

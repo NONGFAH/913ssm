@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../../static/style/style.css">
     <script src="../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../static/js/echarts.common.min.js"></script>
-    <script src="../../static/js/active.js"></script>
     <title>排行榜</title>
 <script>
     $(document).ready(function () {
@@ -33,6 +32,7 @@
         <li id="c" ><a href="javascript:;">月榜</a></li>
     </ul>
 <div style="height:44px" ></div>
+
     <span id="day">
 
     <ul class="mycenter_list" >
@@ -106,18 +106,36 @@
 <script>
     $("#a").click(function () {
         $("#day").hide();
+        $("#day").removeClass("active");
+
         $("#month").hide();
+        $("#month").removeClass("active");
+
         $("#week").show();
+        $("#week").addClass("active");
+
     });
     $("#b").click(function () {
         $("#week").hide();
+        $("#week").removeClass("active");
+
         $("#month").hide();
+        $("#month").removeClass("active");
+
         $("#day").show();
+        $("#day").addClass("active");
+
     });
     $("#c").click(function () {
         $("#day").hide();
+        $("#day").removeClass("active");
+
         $("#week").hide();
+        $("#week").removeClass("active");
+
         $("#month").show();
+        $("#month").addClass("active");
+
     });
 </script>
 

@@ -14,25 +14,24 @@
     <script src="static/js/active.js"></script>
     <title>打卡</title>
 
-
-
     <script>
-
         $(document).ready(function () {
-            function keyLogin(){
-                if (event.keyCode==13) {//回车键的键值为13
-                    var toClick=document.getElementById("submit")
+            function keyLogin() {
+                if (event.keyCode == 13) {//回车键的键值为13
+                    var toClick = document.getElementById("submit")
                     toClick.click();  //调用登录按钮的登录事件
                 }
             }
-
             $("#index").addClass("active");
-            $("input").focus(function () {
+            /*start输入栏选中标识*/
+            var input = $("input");
+            input.focus(function () {
                 $("#footer").hide();
             });
-            $("input").blur(function () {
+            input.blur(function () {
                 $("#footer").show();
             });
+            /*end输入栏选中标识*/
 
             // 函数中的参数为 要获取的cookie键的名称。
             function getCookie(c_name){

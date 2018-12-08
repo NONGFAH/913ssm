@@ -14,6 +14,8 @@
     <title>我</title>
     <script>
         $(document).ready(function () {
+
+
             $("#home").addClass("active");
                 $("#vx").click(function () {
                     $(".zzc").fadeIn()
